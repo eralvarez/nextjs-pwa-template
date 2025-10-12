@@ -10,7 +10,6 @@ const withPWA = require("next-pwa")({
 const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
-  distDir: "build",
   images: {
     unoptimized: true,
   },
