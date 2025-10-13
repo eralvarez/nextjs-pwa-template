@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { RegisterSW } from "components/RegisterSW";
+import NetworkIndicator from "components/NetworkIndicator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/web-app-manifest-192x192.png" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <NetworkIndicator />
         {children}
         <RegisterSW />
       </body>
