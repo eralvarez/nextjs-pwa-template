@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "serve build -l 3030",
+    "start": "serve out -l 3030",
     "dev": "next dev --webpack",
     "start:dev": "next dev --webpack",
     "build": "next build --webpack",
