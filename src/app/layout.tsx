@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import "./globals.css";
 import { RegisterSW } from "components/RegisterSW";
 import NetworkIndicator from "components/NetworkIndicator";
+import theme from "theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -36,10 +34,15 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffffff" />
         <link rel="apple-touch-icon" href="/web-app-manifest-192x192.png" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <NetworkIndicator />
-        {children}
-        <RegisterSW />
+      <body className={`${geistSans.variable}`}>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <NetworkIndicator />
+            {children}
+            <RegisterSW />
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
